@@ -1,4 +1,4 @@
-﻿leverage_threshold_to_invite = 50	# Minimum leverage advantage from power bloc on country to be able to invite the country
+﻿leverage_threshold_to_invite = 0	# Minimum leverage advantage from power bloc on country to be able to invite the country
 
 scaled_cohesion_cost = {
 	value = 0
