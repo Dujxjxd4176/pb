@@ -1,0 +1,4 @@
+NPowerBlocs = {
+	MAX_PRINCIPLES = 8					# Max number of principles that a Power Bloc can have
+	INITIAL_PRINCIPLE_LEVELS = 2		# Max total levels of principles that a Power Bloc can have during formation
+}

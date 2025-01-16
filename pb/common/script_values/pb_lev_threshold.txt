@@ -1,0 +1,16 @@
+﻿leverage_threshold_to_invite = 50	# Minimum leverage advantage from power bloc on country to be able to invite the country
+
+scaled_cohesion_cost = {
+	value = 0
+	
+	add = {
+		value = scope:target_country.country_rank
+		multiply = -0.025
+	}
+	
+	if = {
+		limit = { scope:target_country = { country_rank >= rank_value:great_power } }
+		add = -0.0	
+	}
+}
+

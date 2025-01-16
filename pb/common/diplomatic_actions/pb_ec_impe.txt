@@ -1,0 +1,90 @@
+force_economic_imp = {
+	groups= {
+		power_bloc_leader
+	}
+	show_in_lens = no
+
+	texture = "gfx/interface/icons/diplomatic_action_icons/force_become_subject.dds"
+	
+	selectable = {
+		is_power_bloc_leader = yes
+
+	}
+	
+	potential = {
+		power_bloc ?= {
+			scope:target_country.power_bloc ?= this
+		}
+	}
+	
+	possible = {
+		scope:target_country = { 
+			country_rank < rank_value:unrecognized_major_power 
+			is_diplomatic_play_committed_participant = no
+		}
+	
+		power_bloc = {
+			current_cohesion_percentage >= 0.25
+			leverage_advantage = {
+				target = scope:target_country
+				value >= 100
+			}
+		}
+		scope:target_country = {
+			tenure_in_current_power_bloc_years >= 0
+		}
+		prestige >= {
+			value = scope:target_country.prestige
+			multiply = 5
+		}
+	}
+	
+	accept_effect = {
+		scope:target_country = {
+			add_modifier = {
+				name = unequal_treaties
+			}
+
+		}
+		create_diplomatic_pact = {
+			country = scope:target_country
+			type = foreign_investment_rights
+		}
+		power_bloc = {
+			add_cohesion_percent = scaled_cohesion_cost
+		}
+	}
+	
+	ai = {
+		evaluation_chance = {
+			value = 1 # AI shouldn't use this very often
+		}
+		
+		will_propose = {
+			power_bloc ?= { current_cohesion_percentage >= 0.25 }		
+			OR = {
+				has_attitude = {
+					who = scope:target_country
+					attitude = domineering
+				}
+				power_bloc ?= { current_cohesion_percentage >= 0.25 }						
+			}
+			OR = {
+				AND = {
+					has_attitude = {
+						who = scope:target_country
+						attitude = domineering
+					}		
+					power_bloc ?= { current_cohesion_percentage >= 0.25 }
+				}
+				scope:target_country = {
+					is_country_type = unrecognized
+				}
+			}		
+		}
+
+		propose_score = {								
+			value = 10			
+		}
+	}
+}

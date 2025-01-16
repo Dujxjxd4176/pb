@@ -1,0 +1,5 @@
+unequal_treaties = {
+	country_force_privatization_bool = yes
+	country_disable_nationalization_bool = yes
+
+}
