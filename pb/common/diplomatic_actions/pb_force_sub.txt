@@ -69,25 +69,7 @@
 		
 		will_propose = {
 			power_bloc ?= { current_cohesion_percentage >= 0.25 }		
-			OR = {
-				has_attitude = {
-					who = scope:target_country
-					attitude = domineering
-				}
-				power_bloc ?= { current_cohesion_percentage >= 0.25 }						
-			}
-			OR = {
-				AND = {
-					has_attitude = {
-						who = scope:target_country
-						attitude = domineering
-					}		
-					power_bloc ?= { current_cohesion_percentage >= 0.25 }
-				}
-				scope:target_country = {
-					is_country_type = unrecognized
-				}
-			}		
+	
 		}
 
 		propose_score = {								

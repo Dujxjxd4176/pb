@@ -21,6 +21,7 @@ force_economic_imp = {
 		scope:target_country = { 
 			country_rank < rank_value:unrecognized_major_power 
 			is_diplomatic_play_committed_participant = no
+			has_modifier = unequal_treaties
 		}
 	
 		power_bloc = {
@@ -62,29 +63,6 @@ force_economic_imp = {
 		
 		will_propose = {
 			power_bloc ?= { current_cohesion_percentage >= 0.25 }		
-			OR = {
-				has_attitude = {
-					who = scope:target_country
-					attitude = domineering
-				}
-				power_bloc ?= { current_cohesion_percentage >= 0.25 }						
-			}
-			OR = {
-				AND = {
-					has_attitude = {
-						who = scope:target_country
-						attitude = domineering
-					}		
-					power_bloc ?= { current_cohesion_percentage >= 0.25 }
-				}
-				scope:target_country = {
-					is_country_type = unrecognized
-				}
-			}		
-		}
-
-		propose_score = {								
-			value = 10			
 		}
 	}
 }
