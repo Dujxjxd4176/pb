@@ -49,7 +49,9 @@ force_economic_col = {
 					remove_ideology = ideology_stratocratic
 					remove_ideology = ideology_paternalistic
 					remove_ideology = ideology_elitist 
+					bpm_remove_all_eco_ideologies = yes
 					add_ideology = ideology_colonialist
+					add_ideology = ideology_eco_colonialist
 				}
 			}
 		}
